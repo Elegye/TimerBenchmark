@@ -24,3 +24,8 @@ target_link_libraries(BenchmarkMap benchmark::benchmark)
 add_executable(BenchmarkUnorderedMap benchmark_unordered_map.cpp)
 target_include_directories(BenchmarkUnorderedMap PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(BenchmarkUnorderedMap benchmark::benchmark)
+
+# Slot map Benchmarks
+add_executable(BenchmarkSlotMap benchmark_slot_map.cpp)
+target_include_directories(BenchmarkSlotMap PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(BenchmarkSlotMap benchmark::benchmark)

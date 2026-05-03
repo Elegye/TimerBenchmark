@@ -27,8 +27,10 @@ struct VectorSchedulerSwap {
     void unschedule(const TimerID& tid) {
         for (size_t i = 0; i < entries.size(); ++i) {
             if (entries[i].id == tid.id) {
-                entries[i] = std::move(entries.back());
-                entries.pop_back();
+                if (i != entries.size() - 1) { // swap only if not the last element
+                    entries[i] = std::move(entries.back());
+                }
+                entries.pop_back(); // pop
                 return;
             }
         }
