@@ -24,8 +24,6 @@ struct SlotMapScheduler {
 
     TimerID schedule(const std::chrono::seconds& delay, ITimeout& /** unused */) {
         uint32_t id = next_id++;
-        if (id >= _index.size())
-            _index.resize(id + 1, UINT32_MAX);
 
         _index[id] = static_cast<uint32_t>(_slots.size());
         _slots.push_back({id, FakeTimer{}});
